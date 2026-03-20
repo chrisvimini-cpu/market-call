@@ -1,4 +1,4 @@
-// Stablecoins to exclude from the game (no point predicting these)
+// Stablecoins and non-volatile tokens to exclude from the game (no point predicting these)
 export const STABLECOINS = [
   'usdt',
   'usdc',
@@ -10,6 +10,7 @@ export const STABLECOINS = [
   'usdp',
   'gusd',
   'pyusd',
+  'buidl', // BlackRock tokenized money market fund
 ];
 
 // Token pool configuration

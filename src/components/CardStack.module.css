@@ -1,47 +1,17 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-lg);
+  align-items: center;
+  gap: 40px;
+  padding: 40px 16px;
   max-width: var(--max-width-mobile);
   margin: 0 auto;
 }
 
-.progress {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.progressText {
-  font-family: 'Family', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--color-text-secondary);
-}
-
-.progressBar {
-  display: flex;
-  gap: var(--spacing-sm);
-}
-
-.progressDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--color-border);
-  transition: all 0.3s var(--easing-standard);
-}
-
-.progressDot.active {
-  background: var(--color-coindesk-yellow);
-  transform: scale(1.2);
-}
-
 .stack {
   position: relative;
-  min-height: 400px;
+  width: 342px;
+  height: 403px;
 }
 
 .cardWrapper {
@@ -51,3 +21,105 @@
   right: 0;
   transition: all 0.3s var(--easing-standard);
 }
+
+/* Action Buttons */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  width: 342px;
+  margin-top: 12px;
+}
+
+.bearButton,
+.bullButton {
+  height: 60px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: 'Inter', 'Family', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: all 0.2s var(--easing-standard);
+  box-shadow: var(--shadow-xs);
+  position: relative;
+}
+
+.bearButton:active:not(:disabled),
+.bullButton:active:not(:disabled) {
+  animation: buttonPress 0.2s var(--easing-standard);
+}
+
+.bearButton:disabled,
+.bullButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bearButton {
+  background: #FF454F;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.bearButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--shadow-skeumorphic-inner-border),
+    inset 0 -2px 0 0 var(--shadow-skeumorphic-inner);
+  pointer-events: none;
+}
+
+.bearButton:hover:not(:disabled) {
+  background: #E6404A;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.bullButton {
+  background: #00CD64;
+  border: 1px solid #03A451;
+  color: white;
+}
+
+.bullButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 -2px 0 0 var(--shadow-skeumorphic-inner);
+  pointer-events: none;
+}
+
+.bullButton:hover:not(:disabled) {
+  background: #00BA5C;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Pagination Counter */
+.pagination {
+  width: 342px;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-secondary);
+  text-align: center;
+  font-family: 'Inter', 'Family', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-secondary);
+}
+
+.currentPage,
+.totalPages {
+  font-weight: 500;
+}
+
+.separator {
+  font-weight: 400;
+}
+

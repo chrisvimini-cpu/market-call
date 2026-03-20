@@ -1,100 +1,48 @@
-import { useState, useRef, useEffect } from 'react';
 import Sparkline from './Sparkline.jsx';
+import PredictionBar from './PredictionBar.jsx';
 import { formatPrice, formatPercentage } from '../lib/api.js';
+import { generatePredictionPercentages, getTodayDateString } from '../lib/predictionSimulator.js';
 import styles from './TokenCard.module.css';
 
-export default function TokenCard({ token, sparklineData, onPick, isAnimating }) {
-  const [isDismissing, setIsDismissing] = useState(false);
-  const [swipeY, setSwipeY] = useState(0);
-  const [isSwiping, setIsSwiping] = useState(false);
-  const startY = useRef(0);
-  const cardRef = useRef(null);
-
-  const SWIPE_THRESHOLD = 80;
-
-  const handleTouchStart = (e) => {
-    startY.current = e.touches[0].clientY;
-    setIsSwiping(true);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isSwiping) return;
-    const currentY = e.touches[0].clientY;
-    const diff = startY.current - currentY;
-    setSwipeY(diff);
-  };
-
-  const handleTouchEnd = () => {
-    if (Math.abs(swipeY) > SWIPE_THRESHOLD) {
-      const direction = swipeY > 0 ? 'bull' : 'bear';
-      handlePick(direction);
-    } else {
-      setSwipeY(0);
-    }
-    setIsSwiping(false);
-  };
-
-  const handlePick = (direction) => {
-    setIsDismissing(true);
-    setTimeout(() => {
-      onPick(direction);
-    }, 350);
-  };
+export default function TokenCard({ token, sparklineData, isDismissing }) {
 
   const priceChangeColor = token.price_change_percentage_24h >= 0
     ? 'var(--color-bull-green)'
     : 'var(--color-bear-red)';
 
+  // Generate prediction percentages based on token symbol + today's date
+  const predictionData = generatePredictionPercentages(token.symbol, getTodayDateString());
+
   return (
-    <div
-      ref={cardRef}
-      className={`${styles.card} ${isDismissing ? styles.dismissing : ''} ${isSwiping ? styles.swiping : ''}`}
-      style={{
-        transform: isSwiping ? `translateY(${-swipeY}px)` : undefined,
-      }}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
+    <div className={`${styles.card} ${isDismissing ? styles.dismissing : ''}`}>
+      {/* Token Icon + Name */}
       <div className={styles.header}>
-        <img src={token.image} alt={token.name} className={styles.logo} />
+        <img src={token.image} alt={token.name} className={styles.icon} />
         <div className={styles.info}>
-          <h2 className={styles.name}>{token.name}</h2>
-          <span className={styles.symbol}>{token.symbol.toUpperCase()}</span>
+          <h3 className={styles.symbol}>{token.symbol.toUpperCase()}</h3>
+          <p className={styles.name}>{token.name}</p>
         </div>
       </div>
 
+      {/* Price + 24h Change */}
       <div className={styles.priceSection}>
-        <div className={styles.price}>${formatPrice(token.current_price)}</div>
+        <div className={styles.price}>
+          ${formatPrice(token.current_price)}
+        </div>
         <div className={styles.change} style={{ color: priceChangeColor }}>
           {formatPercentage(token.price_change_percentage_24h)}
         </div>
       </div>
 
+      {/* Sparkline Chart */}
       {sparklineData && sparklineData.length > 0 && (
         <div className={styles.sparklineContainer}>
-          <Sparkline data={sparklineData} width={120} height={40} />
+          <Sparkline data={sparklineData} width={80} height={46} />
         </div>
       )}
 
-      <div className={styles.actions}>
-        <button
-          className={`${styles.button} ${styles.bullButton}`}
-          onClick={() => handlePick('bull')}
-          disabled={isAnimating}
-        >
-          <span className={styles.arrow}>↑</span>
-          <span className={styles.label}>BULL</span>
-        </button>
-        <button
-          className={`${styles.button} ${styles.bearButton}`}
-          onClick={() => handlePick('bear')}
-          disabled={isAnimating}
-        >
-          <span className={styles.arrow}>↓</span>
-          <span className={styles.label}>BEAR</span>
-        </button>
-      </div>
+      {/* Prediction Percentages */}
+      <PredictionBar bearPercent={predictionData.bear} bullPercent={predictionData.bull} />
     </div>
   );
 }
