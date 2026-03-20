@@ -113,3 +113,29 @@
   border-radius: var(--radius-md);
   color: var(--color-text-secondary);
 }
+
+.restartButton {
+  width: 100%;
+  height: 48px;
+  margin-top: var(--spacing-lg);
+  border: 2px solid var(--color-bear-red);
+  background: white;
+  color: var(--color-bear-red);
+  border-radius: var(--radius-lg);
+  font-family: 'Inter', 'Family', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s var(--easing-standard);
+}
+
+.restartButton:hover {
+  background: var(--color-bear-red);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.restartButton:active {
+  animation: buttonPress 0.2s var(--easing-standard);
+}

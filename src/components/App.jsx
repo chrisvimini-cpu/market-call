@@ -15,7 +15,7 @@ import {
   fetchMultipleHistoricalPrices,
 } from '../lib/api.js';
 import { generateDailyGame, isPickCorrect, calculateScore, validatePicks } from '../lib/gameLogic.js';
-import { loadGameState, saveGameState, loadStats, updateStats } from '../lib/storage.js';
+import { loadGameState, saveGameState, loadStats, updateStats, clearAllData } from '../lib/storage.js';
 import styles from './App.module.css';
 
 export default function App() {
@@ -210,6 +210,13 @@ export default function App() {
     window.location.reload();
   }
 
+  function handleRestart() {
+    if (window.confirm('This will reset all your game data and statistics. Are you sure?')) {
+      clearAllData();
+      window.location.reload();
+    }
+  }
+
   function showToast(message, type = 'info') {
     setToast({ message, type });
   }
@@ -284,7 +291,7 @@ export default function App() {
       </main>
 
       {showLeaderboard && <Leaderboard stats={stats} onClose={() => setShowLeaderboard(false)} />}
-      {showAboutModal && <AboutModal onClose={() => setShowAboutModal(false)} />}
+      {showAboutModal && <AboutModal onClose={() => setShowAboutModal(false)} onRestart={handleRestart} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={closeToast} />}
     </div>
   );
