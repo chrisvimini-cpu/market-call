@@ -4,7 +4,7 @@ import CardStack from './CardStack.jsx';
 import ConfirmPicks from './ConfirmPicks.jsx';
 import ResultsScreen from './ResultsScreen.jsx';
 import WaitingScreen from './WaitingScreen.jsx';
-import StatsModal from './StatsModal.jsx';
+import Leaderboard from './Leaderboard.jsx';
 import AboutModal from './AboutModal.jsx';
 import Toast from './Toast.jsx';
 import { copyShareText } from './ShareCard.jsx';
@@ -29,7 +29,7 @@ export default function App() {
 
   // UI state
   const [currentScreen, setCurrentScreen] = useState('loading'); // loading, playing, confirm, waiting, results
-  const [showStatsModal, setShowStatsModal] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
   const [toast, setToast] = useState(null);
 
@@ -247,7 +247,7 @@ export default function App() {
       <Header
         streak={stats.currentStreak}
         onInfoClick={() => setShowAboutModal(true)}
-        onStatsClick={() => setShowStatsModal(true)}
+        onStatsClick={() => setShowLeaderboard(true)}
       />
 
       <main className={styles.main}>
@@ -283,7 +283,7 @@ export default function App() {
         )}
       </main>
 
-      {showStatsModal && <StatsModal stats={stats} onClose={() => setShowStatsModal(false)} />}
+      {showLeaderboard && <Leaderboard stats={stats} onClose={() => setShowLeaderboard(false)} />}
       {showAboutModal && <AboutModal onClose={() => setShowAboutModal(false)} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={closeToast} />}
     </div>

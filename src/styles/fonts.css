@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: 'Family';
-  src: url('/fonts/Family-Regular.woff2') format('woff2');
+  src: url('/fonts/Family-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Family';
-  src: url('/fonts/Family-Bold.woff2') format('woff2');
+  src: url('/fonts/Family-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
