@@ -58,7 +58,6 @@ export default function CardStack({ tokens, sparklines, onComplete }) {
             >
               <TokenCard
                 token={token}
-                sparklineData={sparklines[token.id]}
                 isDismissing={isDismissing && isVisible}
               />
             </div>
