@@ -1,0 +1,48 @@
+:root {
+  /* Colors */
+  --color-background: #FFFFFF;
+  --color-card-bg: #FFFFFF;
+  --color-coindesk-yellow: #F8BF1E;
+  --color-bull-green: #16C784;
+  --color-bear-red: #EA3943;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-sparkline: #9CA3AF;
+  --color-border: #E8E8E8;
+  --color-correct-bg: #FEF9E7;
+  --color-wrong-bg: #F0F0F0;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-active: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+  /* Animation timing */
+  --timing-card-dismiss: 350ms;
+  --timing-card-enter: 300ms;
+  --timing-result-stagger: 200ms;
+  --easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --easing-enter: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --easing-exit: cubic-bezier(0.4, 0.0, 1, 1);
+
+  /* Touch targets */
+  --touch-target-min: 48px;
+  --button-height: 60px;
+
+  /* Layout */
+  --max-width-mobile: 440px;
+  --header-height: 64px;
+}
