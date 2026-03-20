@@ -47,7 +47,9 @@ export default function ResultsScreen({ picks, outcomes, score, streak, onShare,
                 </span>
               </div>
               <div className={styles.pickDirection}>
-                {pick.direction === 'bull' ? '🟢' : '🔴'}
+                <span className={`${styles.directionChip} ${styles[pick.direction]}`}>
+                  {pick.direction === 'bull' ? 'Bull' : 'Bear'}
+                </span>
               </div>
               <div className={`${styles.resultMark} ${isCorrect ? styles.check : styles.x}`}>
                 {isCorrect ? '✓' : '✗'}

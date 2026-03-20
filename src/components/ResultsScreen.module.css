@@ -119,8 +119,27 @@
 }
 
 .pickDirection {
-  font-size: 20px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.directionChip {
+  font-family: 'Inter', 'Family', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.directionChip.bull {
+  background: #00CD64;
+  color: white;
+}
+
+.directionChip.bear {
+  background: #FF454F;
+  color: white;
 }
 
 .resultMark {

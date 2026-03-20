@@ -1,6 +1,6 @@
 import styles from './AboutModal.module.css';
 
-export default function AboutModal({ onClose }) {
+export default function AboutModal({ onClose, onRestart }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -47,6 +47,12 @@ export default function AboutModal({ onClose }) {
             </p>
           </section>
         </div>
+
+        {onRestart && (
+          <button className={styles.restartButton} onClick={onRestart}>
+            Restart Game
+          </button>
+        )}
       </div>
     </div>
   );
