@@ -11,9 +11,12 @@ export async function fetchTokenPool() {
   if (cached) return cached;
 
   try {
-    const response = await fetch(
-      `${API_CONFIG.COINGECKO_BASE}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&sparkline=false`
-    );
+    const url = `${API_CONFIG.COINGECKO_BASE}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&sparkline=false`;
+    const headers = API_CONFIG.COINGECKO_API_KEY
+      ? { 'x-cg-demo-api-key': API_CONFIG.COINGECKO_API_KEY }
+      : {};
+
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
       throw new Error(`CoinGecko API error: ${response.status}`);
@@ -41,9 +44,12 @@ export async function fetchTokenPrices(tokenIds) {
   const idsString = tokenIds.join(',');
 
   try {
-    const response = await fetch(
-      `${API_CONFIG.COINGECKO_BASE}/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&sparkline=false&price_change_percentage=24h`
-    );
+    const url = `${API_CONFIG.COINGECKO_BASE}/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&sparkline=false&price_change_percentage=24h`;
+    const headers = API_CONFIG.COINGECKO_API_KEY
+      ? { 'x-cg-demo-api-key': API_CONFIG.COINGECKO_API_KEY }
+      : {};
+
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
       throw new Error(`CoinGecko API error: ${response.status}`);
@@ -85,9 +91,12 @@ export async function fetchSparkline(tokenId) {
   }
 
   try {
-    const response = await fetch(
-      `${API_CONFIG.COINGECKO_BASE}/coins/${tokenId}/market_chart?vs_currency=usd&days=7&interval=daily`
-    );
+    const url = `${API_CONFIG.COINGECKO_BASE}/coins/${tokenId}/market_chart?vs_currency=usd&days=7&interval=daily`;
+    const headers = API_CONFIG.COINGECKO_API_KEY
+      ? { 'x-cg-demo-api-key': API_CONFIG.COINGECKO_API_KEY }
+      : {};
+
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
       throw new Error(`CoinGecko API error: ${response.status}`);
@@ -136,9 +145,12 @@ export async function fetchMultipleSparklines(tokenIds) {
  */
 export async function fetchHistoricalPrice(tokenId, hoursAgo = 24) {
   try {
-    const response = await fetch(
-      `${API_CONFIG.COINGECKO_BASE}/coins/${tokenId}/market_chart?vs_currency=usd&days=1`
-    );
+    const url = `${API_CONFIG.COINGECKO_BASE}/coins/${tokenId}/market_chart?vs_currency=usd&days=1`;
+    const headers = API_CONFIG.COINGECKO_API_KEY
+      ? { 'x-cg-demo-api-key': API_CONFIG.COINGECKO_API_KEY }
+      : {};
+
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
       throw new Error(`CoinGecko API error: ${response.status}`);

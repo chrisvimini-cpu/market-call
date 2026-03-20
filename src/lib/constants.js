@@ -33,6 +33,7 @@ export const COLORS = {
 // API Configuration
 export const API_CONFIG = {
   COINGECKO_BASE: 'https://api.coingecko.com/api/v3',
+  COINGECKO_API_KEY: import.meta.env.VITE_COINGECKO_API_KEY || '', // Optional API key for higher rate limits
   RATE_LIMIT_DELAY: 2000, // 2 seconds between batch requests
   CACHE_TTL: 5 * 60 * 1000, // 5 minutes
 };
