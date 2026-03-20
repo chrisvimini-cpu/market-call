@@ -77,9 +77,3 @@
   font-size: 14px;
   line-height: 38px;
 }
-
-.sparklineContainer {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 16px;
-}

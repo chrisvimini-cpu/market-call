@@ -1,10 +1,9 @@
-import Sparkline from './Sparkline.jsx';
 import PredictionBar from './PredictionBar.jsx';
 import { formatPrice, formatPercentage } from '../lib/api.js';
 import { generatePredictionPercentages, getTodayDateString } from '../lib/predictionSimulator.js';
 import styles from './TokenCard.module.css';
 
-export default function TokenCard({ token, sparklineData, isDismissing }) {
+export default function TokenCard({ token, isDismissing }) {
 
   const priceChangeColor = token.price_change_percentage_24h >= 0
     ? 'var(--color-bull-green)'
@@ -33,13 +32,6 @@ export default function TokenCard({ token, sparklineData, isDismissing }) {
           {formatPercentage(token.price_change_percentage_24h)}
         </div>
       </div>
-
-      {/* Sparkline Chart */}
-      {sparklineData && sparklineData.length > 0 && (
-        <div className={styles.sparklineContainer}>
-          <Sparkline data={sparklineData} width={80} height={46} />
-        </div>
-      )}
 
       {/* Prediction Percentages */}
       <PredictionBar bearPercent={predictionData.bear} bullPercent={predictionData.bull} />
