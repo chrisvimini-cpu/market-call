@@ -1,0 +1,23 @@
+/* Family font - CoinDesk's brand typeface */
+/* Note: Font files should be placed in public/fonts/ directory */
+
+@font-face {
+  font-family: 'Family';
+  src: url('/fonts/Family-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Family';
+  src: url('/fonts/Family-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback if Family font is not available */
+body {
+  font-family: 'Family', 'Helvetica Neue', Arial, sans-serif;
+}

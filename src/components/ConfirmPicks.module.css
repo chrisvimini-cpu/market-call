@@ -1,0 +1,107 @@
+.container {
+  max-width: var(--max-width-mobile);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.title {
+  font-family: 'Family', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--color-text-primary);
+}
+
+.subtitle {
+  font-family: 'Family', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  margin: 0 0 var(--spacing-xl) 0;
+  color: var(--color-text-secondary);
+}
+
+.picksList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.pickRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s var(--easing-standard);
+}
+
+.pickRow:hover {
+  border-color: var(--color-coindesk-yellow);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.pickRow:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-active);
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.symbol {
+  font-family: 'Family', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  min-width: 50px;
+}
+
+.name {
+  font-family: 'Family', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  flex: 1;
+  text-align: left;
+}
+
+.direction {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.confirmButton {
+  width: 100%;
+  height: var(--button-height);
+  background: var(--color-coindesk-yellow);
+  color: var(--color-text-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: 'Family', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s var(--easing-standard);
+}
+
+.confirmButton:hover {
+  background: #E6B01C;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.confirmButton:active {
+  background: #D4A019;
+  transform: translateY(0);
+  animation: buttonPress 0.2s var(--easing-standard);
+}
