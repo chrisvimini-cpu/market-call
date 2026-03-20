@@ -1,0 +1,161 @@
+import { useEffect } from 'react';
+import styles from './HamburgerMenu.module.css';
+
+const GAMES = [
+  {
+    id: 'satoshi',
+    title: 'Satoshi',
+    subtitle: 'Guess Words',
+    credit: 'Daily Crypto Puzzle',
+    accentColor: '#F8BF1E', // CoinDesk Gold
+    url: 'https://satoshi-alo6qkh8k-chrisvimini-4303s-projects.vercel.app',
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="32" y="42" textAnchor="middle" fill="#353536" fontSize="32" fontWeight="700" fontFamily="Family, Arial, sans-serif">S</text>
+      </svg>
+    )
+  },
+  {
+    id: 'market-call',
+    title: 'Market Call',
+    subtitle: 'Predict Trends',
+    credit: 'Bull or Bear?',
+    accentColor: '#1D726A', // CoinDesk Teal
+    url: 'https://market-call-fypts1531-chrisvimini-4303s-projects.vercel.app',
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 12L44 32L20 32Z" fill="#F1C40F"/>
+        <path d="M32 52L20 32L44 32Z" fill="#EA3943"/>
+      </svg>
+    )
+  },
+  {
+    id: 'onchain',
+    title: 'Onchain',
+    subtitle: 'Solve Clues',
+    credit: 'Daily Crossword',
+    accentColor: '#353536', // CoinDesk Dark
+    url: 'https://onchain-crossword-iilsnghqo-chrisvimini-4303s-projects.vercel.app',
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="18" width="12" height="12" fill="none" stroke="#F1C40F" strokeWidth="2"/>
+        <rect x="34" y="18" width="12" height="12" fill="none" stroke="#F1C40F" strokeWidth="2"/>
+        <rect x="18" y="34" width="12" height="12" fill="none" stroke="#F1C40F" strokeWidth="2"/>
+        <rect x="34" y="34" width="12" height="12" fill="none" stroke="#F1C40F" strokeWidth="2"/>
+      </svg>
+    )
+  }
+];
+
+const HamburgerMenu = ({ isOpen, onClose }) => {
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Close on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
+
+  const handleGameClick = (url) => {
+    window.location.href = url;
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className={styles.backdrop}
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Menu Panel */}
+      <div
+        className={styles.menu}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Game launcher menu"
+      >
+        <div className={styles.menuContent}>
+          {/* Header with Logo and Close Button */}
+          <div className={styles.menuHeader}>
+            <img
+              src="/coindesk-games-logo.svg"
+              alt="CoinDesk Games"
+              className={styles.logo}
+            />
+            <button
+              className={styles.closeButton}
+              onClick={onClose}
+              aria-label="Close menu"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Game Cards */}
+          <div className={styles.gameCards}>
+            {GAMES.map((game) => (
+              <div key={game.id} className={styles.gameCard}>
+                {/* Colored accent section with icon and play button */}
+                <div
+                  className={styles.cardAccent}
+                  style={{ backgroundColor: game.accentColor }}
+                >
+                  <div className={styles.cardIcon}>
+                    {game.icon}
+                  </div>
+                  <button
+                    className={styles.playButton}
+                    onClick={() => handleGameClick(game.url)}
+                    aria-label={`Play ${game.title}`}
+                  >
+                    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                      <path
+                        d="M2 2L14 10L2 18V2Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Info section */}
+                <div className={styles.cardInfo}>
+                  <h3 className={styles.cardTitle}>{game.title}</h3>
+                  <p className={styles.cardSubtitle}>{game.subtitle}</p>
+                  <p className={styles.cardCredit}>{game.credit}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default HamburgerMenu;

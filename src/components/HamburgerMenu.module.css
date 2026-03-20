@@ -1,0 +1,286 @@
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Menu Panel */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background-image: url('/cd-games-bg-pattern.svg');
+  background-size: cover;
+  background-position: center;
+  background-color: #F5F5F0;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+  overflow-y: auto;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.menuContent {
+  padding: 24px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #353536;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.closeButton:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Game Cards */
+.gameCards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.gameCard {
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gameCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Accent Section (Left ~40%) */
+.cardAccent {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px 16px;
+  position: relative;
+}
+
+.cardIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.cardIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.playButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  margin-top: 12px;
+}
+
+.playButton:hover {
+  background-color: #1A1A1B;
+  transform: scale(1.05);
+}
+
+.playButton:active {
+  transform: scale(0.95);
+}
+
+.playButton svg {
+  margin-left: 2px; /* Visual centering of play triangle */
+}
+
+/* Card Info Section (Right ~60%) */
+.cardInfo {
+  flex: 1;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cardTitle {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 700;
+  color: #353536;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cardSubtitle {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  color: #353536;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardCredit {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 400;
+  color: #757575;
+  margin: 0;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .menu {
+    max-width: 85%;
+  }
+
+  .menuContent {
+    padding: 20px 16px;
+  }
+
+  .menuHeader {
+    margin-bottom: 24px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .closeButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .gameCards {
+    gap: 12px;
+  }
+
+  .cardAccent {
+    padding: 16px 12px 12px;
+  }
+
+  .cardIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .playButton {
+    width: 44px;
+    height: 44px;
+    margin-top: 8px;
+  }
+
+  .cardInfo {
+    padding: 16px 12px;
+    gap: 3px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardSubtitle {
+    font-size: 14px;
+  }
+
+  .cardCredit {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .menu {
+    max-width: 90%;
+  }
+
+  .menuContent {
+    padding: 16px 12px;
+  }
+
+  .logo {
+    height: 36px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardSubtitle {
+    font-size: 13px;
+  }
+}

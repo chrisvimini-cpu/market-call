@@ -1,11 +1,12 @@
 import styles from './Header.module.css';
 
-export default function Header({ streak, onInfoClick, onStatsClick }) {
+export default function Header({ streak, onInfoClick, onStatsClick, onMenuClick }) {
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
         <button
           className={styles.menuButton}
+          onClick={onMenuClick}
           aria-label="Menu"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
