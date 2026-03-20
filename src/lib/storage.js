@@ -133,11 +133,12 @@ export function loadPriceCache() {
 /**
  * Save token pool
  */
-export function saveTokenPool(pool) {
+export function saveTokenPool(pool, version) {
   try {
     localStorage.setItem(STORAGE_KEYS.TOKEN_POOL, JSON.stringify({
       tokens: pool,
       timestamp: Date.now(),
+      version: version,
     }));
   } catch (error) {
     console.error('Failed to save token pool:', error);
@@ -147,12 +148,19 @@ export function saveTokenPool(pool) {
 /**
  * Load token pool
  */
-export function loadTokenPool() {
+export function loadTokenPool(expectedVersion) {
   try {
     const data = localStorage.getItem(STORAGE_KEYS.TOKEN_POOL);
     if (!data) return null;
 
-    const { tokens, timestamp } = JSON.parse(data);
+    const { tokens, timestamp, version } = JSON.parse(data);
+
+    // Invalidate cache if version doesn't match
+    if (version !== expectedVersion) {
+      console.log(`Token pool cache version mismatch (cached: ${version}, expected: ${expectedVersion}). Fetching fresh data.`);
+      return null;
+    }
+
     const age = Date.now() - timestamp;
     const oneDay = 24 * 60 * 60 * 1000;
 

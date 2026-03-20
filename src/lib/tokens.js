@@ -1,3 +1,6 @@
+// Cache version - increment this when you change the exclusion list to bust the cache
+export const TOKEN_POOL_CACHE_VERSION = 2;
+
 // Stablecoins and non-volatile tokens to exclude from the game (no point predicting these)
 export const STABLECOINS = [
   'tether',

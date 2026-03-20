@@ -1,13 +1,13 @@
 import { API_CONFIG } from './constants.js';
-import { STABLECOINS } from './tokens.js';
+import { STABLECOINS, TOKEN_POOL_CACHE_VERSION } from './tokens.js';
 import { loadPriceCache, savePriceCache, loadTokenPool, saveTokenPool } from './storage.js';
 
 /**
  * Fetch top tokens by market cap, excluding stablecoins
  */
 export async function fetchTokenPool() {
-  // Check cache first
-  const cached = loadTokenPool();
+  // Check cache first (with version check)
+  const cached = loadTokenPool(TOKEN_POOL_CACHE_VERSION);
   if (cached) return cached;
 
   try {
@@ -31,7 +31,7 @@ export async function fetchTokenPool() {
 
     console.log('Token pool after filtering:', filtered.map(t => `${t.market_cap_rank}. ${t.symbol.toUpperCase()}`));
 
-    saveTokenPool(filtered);
+    saveTokenPool(filtered, TOKEN_POOL_CACHE_VERSION);
     return filtered;
   } catch (error) {
     console.error('Failed to fetch token pool:', error);
