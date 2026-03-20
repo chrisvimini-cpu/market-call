@@ -1,16 +1,16 @@
 // Stablecoins and non-volatile tokens to exclude from the game (no point predicting these)
 export const STABLECOINS = [
-  'usdt',
-  'usdc',
+  'tether',
+  'usd-coin',
   'dai',
-  'busd',
-  'tusd',
-  'fdusd',
+  'binance-usd',
+  'true-usd',
+  'first-digital-usd',
   'usdd',
-  'usdp',
-  'gusd',
-  'pyusd',
-  'buidl', // BlackRock tokenized money market fund
+  'paxos-standard',
+  'gemini-dollar',
+  'paypal-usd',
+  'blackrock-usd-institutional-digital-liquidity-fund', // BUIDL - BlackRock money market fund
 ];
 
 // Token pool configuration
