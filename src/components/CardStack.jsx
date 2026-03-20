@@ -72,29 +72,32 @@ export default function CardStack({ tokens, sparklines, onComplete }) {
         })}
       </div>
 
-      {/* Action Buttons */}
-      <div className={styles.actions}>
-        <button
-          className={styles.bearButton}
-          onClick={() => handlePick('bear')}
-          disabled={isAnimating}
-        >
-          Bear
-        </button>
-        <button
-          className={styles.bullButton}
-          onClick={() => handlePick('bull')}
-          disabled={isAnimating}
-        >
-          Bull
-        </button>
-      </div>
+      {/* Fixed Bottom Section */}
+      <div className={styles.bottomFixed}>
+        {/* Action Buttons */}
+        <div className={styles.actions}>
+          <button
+            className={styles.bearButton}
+            onClick={() => handlePick('bear')}
+            disabled={isAnimating}
+          >
+            Bear
+          </button>
+          <button
+            className={styles.bullButton}
+            onClick={() => handlePick('bull')}
+            disabled={isAnimating}
+          >
+            Bull
+          </button>
+        </div>
 
-      {/* Pagination Counter */}
-      <div className={styles.pagination}>
-        <span className={styles.currentPage}>{progress}</span>
-        <span className={styles.separator}> of </span>
-        <span className={styles.totalPages}>{total}</span>
+        {/* Pagination Counter */}
+        <div className={styles.pagination}>
+          <span className={styles.currentPage}>{progress}</span>
+          <span className={styles.separator}> of </span>
+          <span className={styles.totalPages}>{total}</span>
+        </div>
       </div>
     </div>
   );

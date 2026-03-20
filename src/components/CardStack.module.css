@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
-  padding: 40px 16px;
+  gap: 20px;
+  padding: 24px 16px 160px;
   max-width: var(--max-width-mobile);
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 /* Game Description */
@@ -36,13 +37,27 @@
   transition: all 0.3s var(--easing-standard);
 }
 
+/* Fixed Bottom Section */
+.bottomFixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-background);
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--color-border-secondary);
+}
+
 /* Action Buttons */
 .actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-md);
   width: 342px;
-  margin-top: 3px;
 }
 
 .bearButton,
@@ -118,9 +133,6 @@
 /* Pagination Counter */
 .pagination {
   width: 342px;
-  margin-top: 10px;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-border-secondary);
   text-align: center;
   font-family: 'Inter', 'Family', sans-serif;
   font-size: 14px;
