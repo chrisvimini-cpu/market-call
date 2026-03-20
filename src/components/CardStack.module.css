@@ -63,7 +63,7 @@
   text-decoration: underline;
   cursor: pointer;
   padding: 0;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
   transition: opacity 0.2s var(--easing-standard);
 }
 
