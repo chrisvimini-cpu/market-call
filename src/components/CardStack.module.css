@@ -8,6 +8,29 @@
   margin: 0 auto;
 }
 
+/* Game Description */
+.description {
+  text-align: center;
+  max-width: 342px;
+}
+
+.descriptionTitle {
+  font-family: "Family", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.descriptionText {
+  font-family: "Family", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text-secondary);
+}
+
 .stack {
   position: relative;
   width: 342px;
@@ -28,7 +51,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-md);
   width: 342px;
-  margin-top: 12px;
+  margin-top: 6px;
 }
 
 .bearButton,

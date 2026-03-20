@@ -34,6 +34,14 @@ export default function CardStack({ tokens, sparklines, onComplete }) {
 
   return (
     <div className={styles.container}>
+      {/* Game Description */}
+      <div className={styles.description}>
+        <div className={styles.descriptionTitle}>A Daily Crypto Prediction Game</div>
+        <div className={styles.descriptionText}>
+          Players predict whether 5 crypto tokens will go UP or DOWN in the next 24 hours.
+        </div>
+      </div>
+
       <div className={styles.stack}>
         {tokens.map((token, index) => {
           if (index < currentIndex) return null;
