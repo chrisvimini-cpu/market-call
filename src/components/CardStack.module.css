@@ -52,6 +52,25 @@
   border-top: 1px solid var(--color-border-secondary);
 }
 
+/* Review Link */
+.reviewLink {
+  background: none;
+  border: none;
+  font-family: 'Inter', 'Family', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #1A1A1B;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 4px;
+  transition: opacity 0.2s var(--easing-standard);
+}
+
+.reviewLink:hover {
+  opacity: 0.7;
+}
+
 /* Action Buttons */
 .actions {
   display: grid;
