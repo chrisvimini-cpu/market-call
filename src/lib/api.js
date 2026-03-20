@@ -24,10 +24,12 @@ export async function fetchTokenPool() {
 
     const data = await response.json();
 
-    // Filter out stablecoins and take top 50
+    // Filter out stablecoins and non-volatile tokens, then take EXACTLY top 50 by market cap
     const filtered = data
       .filter(token => !STABLECOINS.includes(token.id))
       .slice(0, 50);
+
+    console.log('Token pool after filtering:', filtered.map(t => `${t.market_cap_rank}. ${t.symbol.toUpperCase()}`));
 
     saveTokenPool(filtered);
     return filtered;

@@ -55,11 +55,11 @@
 
 .title {
   font-family: "Family", "Helvetica Neue", Arial, sans-serif;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   margin: 0;
   color: #1A1A1B;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   line-height: normal;
   white-space: nowrap;
 }
