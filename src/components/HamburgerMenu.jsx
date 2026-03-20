@@ -5,8 +5,7 @@ const GAMES = [
   {
     id: 'satoshi',
     title: 'Satoshi',
-    subtitle: 'Guess Words',
-    credit: 'Daily Crypto Puzzle',
+    description: 'Daily Crypto Puzzle',
     accentColor: '#F8BF1E', // CoinDesk Gold
     url: 'https://satoshi.vercel.app',
     icon: (
@@ -18,8 +17,7 @@ const GAMES = [
   {
     id: 'market-call',
     title: 'Market Call',
-    subtitle: 'Predict Trends',
-    credit: 'Bull or Bear?',
+    description: 'Daily Prediction Game',
     accentColor: '#1D726A', // CoinDesk Teal
     url: 'https://market-call.vercel.app',
     icon: (
@@ -32,8 +30,7 @@ const GAMES = [
   {
     id: 'onchain',
     title: 'Onchain',
-    subtitle: 'Solve Clues',
-    credit: 'Daily Crossword',
+    description: 'Daily Mini Crossword',
     accentColor: '#353536', // CoinDesk Dark
     url: 'https://onchain-crossword.vercel.app',
     icon: (
@@ -134,8 +131,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
                 {/* Info section */}
                 <div className={styles.cardInfo}>
                   <h3 className={styles.cardTitle}>{game.title}</h3>
-                  <p className={styles.cardSubtitle}>{game.subtitle}</p>
-                  <p className={styles.cardCredit}>{game.credit}</p>
+                  <p className={styles.cardDescription}>{game.description}</p>
                   <button
                     className={styles.playButton}
                     onClick={() => handleGameClick(game.url)}
