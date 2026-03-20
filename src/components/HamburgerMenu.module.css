@@ -117,8 +117,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 16px 16px;
+  justify-content: center;
+  padding: 20px 16px;
   position: relative;
 }
 
@@ -128,39 +128,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
 }
 
 .cardIcon svg {
   width: 100%;
   height: 100%;
-}
-
-.playButton {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #000000;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  margin-top: 12px;
-}
-
-.playButton:hover {
-  background-color: #1A1A1B;
-  transform: scale(1.05);
-}
-
-.playButton:active {
-  transform: scale(0.95);
-}
-
-.playButton svg {
-  margin-left: 2px; /* Visual centering of play triangle */
 }
 
 /* Card Info Section (Right ~60%) */
@@ -201,6 +173,30 @@
   margin-top: 4px;
 }
 
+.playButton {
+  margin-top: 12px;
+  padding: 10px 24px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  align-self: flex-start;
+}
+
+.playButton:hover {
+  background-color: #1A1A1B;
+}
+
+.playButton:active {
+  transform: scale(0.98);
+}
+
 /* Mobile Adjustments */
 @media (max-width: 480px) {
   .menu {
@@ -229,7 +225,7 @@
   }
 
   .cardAccent {
-    padding: 16px 12px 12px;
+    padding: 16px 12px;
   }
 
   .cardIcon {
@@ -238,9 +234,9 @@
   }
 
   .playButton {
-    width: 44px;
-    height: 44px;
-    margin-top: 8px;
+    padding: 9px 20px;
+    font-size: 13px;
+    margin-top: 10px;
   }
 
   .cardInfo {
