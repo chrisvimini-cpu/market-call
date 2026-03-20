@@ -16,12 +16,8 @@ export default function ConfirmPicks({ picks, onConfirm, onEdit }) {
             <img src={pick.token.image} alt={pick.token.name} className={styles.logo} />
             <span className={styles.symbol}>{pick.token.symbol.toUpperCase()}</span>
             <span className={styles.name}>{pick.token.name}</span>
-            <span
-              className={`${styles.direction} ${
-                pick.direction === 'bull' ? styles.bull : styles.bear
-              }`}
-            >
-              {pick.direction === 'bull' ? '🟢' : '🔴'}
+            <span className={`${styles.directionChip} ${styles[pick.direction]}`}>
+              {pick.direction === 'bull' ? 'Bull' : 'Bear'}
             </span>
           </button>
         ))}
