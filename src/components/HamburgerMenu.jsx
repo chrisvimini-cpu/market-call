@@ -121,7 +121,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
           <div className={styles.gameCards}>
             {GAMES.map((game) => (
               <div key={game.id} className={styles.gameCard}>
-                {/* Colored accent section with icon and play button */}
+                {/* Colored accent section with icon */}
                 <div
                   className={styles.cardAccent}
                   style={{ backgroundColor: game.accentColor }}
@@ -129,18 +129,6 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
                   <div className={styles.cardIcon}>
                     {game.icon}
                   </div>
-                  <button
-                    className={styles.playButton}
-                    onClick={() => handleGameClick(game.url)}
-                    aria-label={`Play ${game.title}`}
-                  >
-                    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-                      <path
-                        d="M2 2L14 10L2 18V2Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
                 </div>
 
                 {/* Info section */}
@@ -148,6 +136,13 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
                   <h3 className={styles.cardTitle}>{game.title}</h3>
                   <p className={styles.cardSubtitle}>{game.subtitle}</p>
                   <p className={styles.cardCredit}>{game.credit}</p>
+                  <button
+                    className={styles.playButton}
+                    onClick={() => handleGameClick(game.url)}
+                    aria-label={`Play ${game.title}`}
+                  >
+                    PLAY
+                  </button>
                 </div>
               </div>
             ))}
