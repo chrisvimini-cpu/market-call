@@ -7,6 +7,7 @@ import WaitingScreen from './WaitingScreen.jsx';
 import Leaderboard from './Leaderboard.jsx';
 import AboutModal from './AboutModal.jsx';
 import Toast from './Toast.jsx';
+import HamburgerMenu from './HamburgerMenu.jsx';
 import { copyShareText } from './ShareCard.jsx';
 import {
   fetchTokenPool,
@@ -31,6 +32,7 @@ export default function App() {
   const [currentScreen, setCurrentScreen] = useState('loading'); // loading, playing, confirm, waiting, results
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [toast, setToast] = useState(null);
   const [hasCompletedPicks, setHasCompletedPicks] = useState(false);
 
@@ -232,11 +234,12 @@ export default function App() {
   if (isLoading) {
     return (
       <div className={styles.app}>
-        <Header streak={stats.currentStreak} onInfoClick={() => {}} onStatsClick={() => {}} />
+        <Header streak={stats.currentStreak} onInfoClick={() => {}} onStatsClick={() => {}} onMenuClick={() => setShowMenu(true)} />
         <div className={styles.loading}>
           <div className={styles.spinner} />
           <p>Loading today's tokens...</p>
         </div>
+        <HamburgerMenu isOpen={showMenu} onClose={() => setShowMenu(false)} />
       </div>
     );
   }
@@ -244,11 +247,12 @@ export default function App() {
   if (error) {
     return (
       <div className={styles.app}>
-        <Header streak={stats.currentStreak} onInfoClick={() => {}} onStatsClick={() => {}} />
+        <Header streak={stats.currentStreak} onInfoClick={() => {}} onStatsClick={() => {}} onMenuClick={() => setShowMenu(true)} />
         <div className={styles.error}>
           <p>{error}</p>
           <button onClick={initializeGame}>Try Again</button>
         </div>
+        <HamburgerMenu isOpen={showMenu} onClose={() => setShowMenu(false)} />
       </div>
     );
   }
@@ -259,6 +263,7 @@ export default function App() {
         streak={stats.currentStreak}
         onInfoClick={() => setShowAboutModal(true)}
         onStatsClick={() => setShowLeaderboard(true)}
+        onMenuClick={() => setShowMenu(true)}
       />
 
       <main className={styles.main}>
@@ -299,6 +304,7 @@ export default function App() {
       {showLeaderboard && <Leaderboard stats={stats} onClose={() => setShowLeaderboard(false)} />}
       {showAboutModal && <AboutModal onClose={() => setShowAboutModal(false)} onRestart={handleRestart} />}
       {toast && <Toast message={toast.message} type={toast.type} onClose={closeToast} />}
+      <HamburgerMenu isOpen={showMenu} onClose={() => setShowMenu(false)} />
     </div>
   );
 }
