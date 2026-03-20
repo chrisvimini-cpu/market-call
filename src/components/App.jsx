@@ -157,10 +157,8 @@ export default function App() {
   }
 
   function handleEditPick(index) {
-    // For simplicity, just go back to playing and let them redo
-    // In a more complex implementation, you could allow editing specific picks
-    showToast('Restarting picks...', 'info');
-    setPicks([]);
+    // Keep existing picks and just go back to playing screen
+    // User can re-swipe and use "Review your calls" link to jump back
     setCurrentScreen('playing');
   }
 
