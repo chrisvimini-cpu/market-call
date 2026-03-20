@@ -32,8 +32,6 @@ export default function Leaderboard({ stats, onClose }) {
           <div className={styles.rankColumn}>Rank</div>
           <div className={styles.usernameColumn}>Player</div>
           <div className={styles.streakColumn}>Streak</div>
-          <div className={styles.perfectColumn}>Perfect Days</div>
-          <div className={styles.accuracyColumn}>Accuracy</div>
         </div>
 
         <div className={styles.tableBody}>
@@ -57,12 +55,6 @@ export default function Leaderboard({ stats, onClose }) {
                   {entry.streak > 0 && '🔥 '}
                   {entry.streak}
                 </span>
-              </div>
-              <div className={styles.perfectColumn}>
-                <span>{entry.perfectDays}</span>
-              </div>
-              <div className={styles.accuracyColumn}>
-                <span>{entry.accuracy}%</span>
               </div>
             </div>
           ))}
