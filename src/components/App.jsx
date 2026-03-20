@@ -32,6 +32,7 @@ export default function App() {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
   const [toast, setToast] = useState(null);
+  const [hasCompletedPicks, setHasCompletedPicks] = useState(false);
 
   // Stats
   const [stats, setStats] = useState(loadStats());
@@ -147,6 +148,11 @@ export default function App() {
 
   function handlePicksComplete(newPicks) {
     setPicks(newPicks);
+    setHasCompletedPicks(true);
+    setCurrentScreen('confirm');
+  }
+
+  function handleReviewPicks() {
     setCurrentScreen('confirm');
   }
 
@@ -263,6 +269,8 @@ export default function App() {
             tokens={dailyTokens}
             sparklines={sparklines}
             onComplete={handlePicksComplete}
+            onReview={handleReviewPicks}
+            showReviewLink={hasCompletedPicks && picks.length === 5}
           />
         )}
 

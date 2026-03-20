@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TokenCard from './TokenCard.jsx';
 import styles from './CardStack.module.css';
 
-export default function CardStack({ tokens, sparklines, onComplete }) {
+export default function CardStack({ tokens, sparklines, onComplete, onReview, showReviewLink }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [picks, setPicks] = useState([]);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -74,6 +74,13 @@ export default function CardStack({ tokens, sparklines, onComplete }) {
 
       {/* Fixed Bottom Section */}
       <div className={styles.bottomFixed}>
+        {/* Review Link (shown after first completion) */}
+        {showReviewLink && (
+          <button className={styles.reviewLink} onClick={onReview}>
+            Review your calls
+          </button>
+        )}
+
         {/* Action Buttons */}
         <div className={styles.actions}>
           <button
