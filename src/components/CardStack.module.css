@@ -14,21 +14,12 @@
   max-width: 342px;
 }
 
-.descriptionTitle {
-  font-family: "Family", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
-  color: var(--color-text-primary);
-  margin-bottom: 8px;
-}
-
 .descriptionText {
   font-family: "Family", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
-  color: var(--color-text-secondary);
+  color: #1A1A1B;
 }
 
 .stack {
@@ -51,7 +42,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-md);
   width: 342px;
-  margin-top: 6px;
+  margin-top: 3px;
 }
 
 .bearButton,
