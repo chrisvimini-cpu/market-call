@@ -7,7 +7,7 @@ const GAMES = [
     title: 'Satoshi',
     description: 'Daily Crypto Puzzle',
     accentColor: '#F8BF1E', // CoinDesk Gold
-    url: 'https://satoshi.vercel.app',
+    url: 'https://satoshi-git-main-chrisvimini-4303s-projects.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <text x="32" y="42" textAnchor="middle" fill="#353536" fontSize="32" fontWeight="700" fontFamily="Family, Arial, sans-serif">S</text>
@@ -19,7 +19,7 @@ const GAMES = [
     title: 'Market Call',
     description: 'Daily Prediction Game',
     accentColor: '#1D726A', // CoinDesk Teal
-    url: 'https://market-call.vercel.app',
+    url: 'https://market-call-git-main-chrisvimini-4303s-projects.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M32 12L44 32L20 32Z" fill="#F1C40F"/>
@@ -32,7 +32,7 @@ const GAMES = [
     title: 'Onchain',
     description: 'Daily Mini Crossword',
     accentColor: '#353536', // CoinDesk Dark
-    url: 'https://onchain-crossword.vercel.app',
+    url: 'https://onchain-crossword-git-main-chrisvimini-4303s-projects.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="18" y="18" width="12" height="12" fill="none" stroke="#F1C40F" strokeWidth="2"/>
