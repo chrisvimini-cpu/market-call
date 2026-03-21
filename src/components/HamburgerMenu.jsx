@@ -7,7 +7,7 @@ const GAMES = [
     title: 'Satoshi',
     description: 'Daily Crypto Puzzle',
     backgroundSvg: '/S.svg',
-    url: 'https://satoshi.vercel.app',
+    url: 'https://satoshi-nine.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <text x="32" y="42" textAnchor="middle" fill="#353536" fontSize="32" fontWeight="700" fontFamily="Family, Arial, sans-serif">S</text>
