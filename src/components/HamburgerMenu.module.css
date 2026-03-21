@@ -56,13 +56,14 @@
 /* Header */
 .menuHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 75px;
+  position: relative;
 }
 
 .logo {
-  height: 48px;
+  height: 59px;
   width: auto;
 }
 
@@ -79,6 +80,10 @@
   height: 40px;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .closeButton:hover {
@@ -104,6 +109,7 @@
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 133px;
 }
 
 .gameCard:hover {
@@ -113,21 +119,24 @@
 
 /* Card Accent Section (Left ~40%) */
 .cardAccent {
-  flex: 0 0 40%;
+  flex: 0 0 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px 16px;
   position: relative;
+  overflow: hidden;
 }
 
 .cardIcon {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .cardIcon svg {
@@ -156,23 +165,23 @@
 
 .cardDescription {
   font-family: var(--font-family);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #353536;
   margin: 0;
-  margin-top: 6px;
+  margin-top: 7px;
   line-height: 1.3;
 }
 
 .playButton {
-  margin-top: 12px;
-  padding: 10px 24px;
+  margin-top: 14px;
+  padding: 9px 20px;
   background-color: #000000;
   color: #FFFFFF;
   border: none;
   border-radius: 6px;
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
   cursor: pointer;
