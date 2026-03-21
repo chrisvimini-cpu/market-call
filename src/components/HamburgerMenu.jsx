@@ -6,7 +6,7 @@ const GAMES = [
     id: 'satoshi',
     title: 'Satoshi',
     description: 'Daily Crypto Puzzle',
-    accentColor: '#F8BF1E', // CoinDesk Gold
+    backgroundSvg: '/S.svg',
     url: 'https://satoshi-git-main-chrisvimini-4303s-projects.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@ const GAMES = [
     id: 'market-call',
     title: 'Market Call',
     description: 'Daily Prediction Game',
-    accentColor: '#1D726A', // CoinDesk Teal
+    backgroundSvg: '/MC.svg',
     url: 'https://market-call-git-main-chrisvimini-4303s-projects.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@ const GAMES = [
     id: 'onchain',
     title: 'Onchain',
     description: 'Daily Mini Crossword',
-    accentColor: '#353536', // CoinDesk Dark
+    backgroundSvg: '/O.svg',
     url: 'https://onchain-crossword-git-main-chrisvimini-4303s-projects.vercel.app',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,22 +123,12 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
                 {/* Colored accent section with icon */}
                 <div
                   className={styles.cardAccent}
-                  style={{ backgroundColor: game.accentColor }}
+                  style={{
+                    backgroundImage: `url('${game.backgroundSvg}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
                 >
-                  {/* Decorative background elements */}
-                  {game.id === 'satoshi' && (
-                    <>
-                      <span className={styles.decorS} style={{ top: '7px', right: '24px', opacity: 0.1 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '-20px', right: '65px', opacity: 0.05 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '36px', right: '80px', opacity: 0.1 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '100px', right: '97px', opacity: 0.1 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '61px', right: '82px', opacity: 0.05 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '85px', right: '-9px', opacity: 0.05 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '0', right: '-9px', opacity: 0.1 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '-27px', right: '88px', opacity: 0.05 }}>S</span>
-                      <span className={styles.decorS} style={{ top: '100px', right: '68px', opacity: 0.1 }}>S</span>
-                    </>
-                  )}
                   <div className={styles.cardIcon}>
                     {game.icon}
                   </div>
