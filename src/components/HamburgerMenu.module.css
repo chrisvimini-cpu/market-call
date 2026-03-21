@@ -100,8 +100,9 @@
 }
 
 .logo {
-  height: 236px;
-  width: 796px;
+  width: 90%;
+  max-width: 360px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -232,9 +233,6 @@
     margin-bottom: 24px;
   }
 
-  .logo {
-    height: 40px;
-  }
 
   .closeButton {
     width: 36px;
@@ -285,9 +283,6 @@
     padding: 16px 12px;
   }
 
-  .logo {
-    height: 36px;
-  }
 
   .cardTitle {
     font-size: 20px;
