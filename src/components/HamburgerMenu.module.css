@@ -100,8 +100,8 @@
 }
 
 .logo {
-  height: 59px;
-  width: 199px;
+  height: 118px;
+  width: 398px;
   object-fit: contain;
 }
 
@@ -164,17 +164,6 @@
   height: 100%;
 }
 
-/* Decorative S letters for Satoshi card */
-.decorS {
-  position: absolute;
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 43px;
-  color: #000000;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-}
 
 /* Card Info Section (Right ~60%) */
 .cardInfo {
