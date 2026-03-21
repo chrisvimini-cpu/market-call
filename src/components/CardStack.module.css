@@ -157,6 +157,7 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--color-text-secondary);
+  margin-top: 16px;
 }
 
 .currentPage,
