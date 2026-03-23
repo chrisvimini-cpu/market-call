@@ -72,15 +72,14 @@ export default function CardStack({ tokens, sparklines, onComplete, onReview, sh
         })}
       </div>
 
-      {/* Pagination Counter */}
-      <div className={styles.pagination}>
-        <span className={styles.currentPage}>{progress}</span>
-        <span className={styles.separator}> of </span>
-        <span className={styles.totalPages}>{total}</span>
-      </div>
-
       {/* Fixed Bottom Section */}
       <div className={styles.bottomFixed}>
+        {/* Pagination Counter */}
+        <div className={styles.pagination}>
+          <span className={styles.currentPage}>{progress}</span>
+          <span className={styles.separator}> of </span>
+          <span className={styles.totalPages}>{total}</span>
+        </div>
         {/* Review Link (shown after first completion) */}
         {showReviewLink && (
           <button className={styles.reviewLink} onClick={onReview}>
