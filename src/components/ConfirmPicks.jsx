@@ -24,7 +24,7 @@ export default function ConfirmPicks({ picks, onConfirm, onEdit }) {
       </div>
 
       <button className={styles.confirmButton} onClick={onConfirm}>
-        LOCK IN MY CALLS
+        Lock in my calls
       </button>
     </div>
   );
